@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather</title>
+    <meta charset="utf-8" />
+    <meta
+    name = "viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+</head>
+<body>
+    <h1>Find the Weather</h1>
+    <div class="container">
+        <fieldset>
+            <form action="/" method="post">
+                <p>City: </p>
+                <input name="city" type="text" placeholder="Enter a City" required>
+                <br>
+                <p>Country Code (2 letters): </p>
+                <input name="country" type="text" placeholder="Enter a Country Code" required>
+                <input type="submit" value="Get Weather">
+            </form>
+            <p>Note: for the Country Code, Please refer to <a href="https://www.iso.org/obp/ui/#search">ISO 3166</a></p>
+        </fieldset>
+
+        <% if (weather !== null) { %>
+            <h2><%= name %> ( <%= lat %> )</h2> 
+            <h3><%= description %></h3>
+            <ul><b>Tempature(°C)</b>
+                <li>Current Tempature: <%= temp_c %></li>
+                <li>Feels like: <%= feels_like_c %></li>
+                <li>Daily Maximum Tempature: <%=temp_max_c %></li>
+                <li>Daily Minimum Tempature: <%=temp_min_c %></li>
+            </ul>
+            <br>
+            <ul><b>Tempature(°F)</b>
+                <li>Current Tempature: <%= temp_f %></li>
+                <li>Feels like: <%= feels_like_f %></li>
+                <li>Daily Maximum Tempature: <%=temp_max_f %></li>
+                <li>Daily Minimum Tempature: <%=temp_min_f %></li>
+            </ul>
+            <br>
+            <p>Pressure: <%= pressure %> N·m-2</p>
+            <p>Humidity: <%= humidity %> g.m-3</p>
+            <p>Visibility: <%= visibility %> meters</p>
+            <p>Cloud: <%= cloud %></p>
+
+        <% } %>
+
+        <% if(error !== null){ %>
+        <p>
+            <%= error %>
+        </p>
+        <% } %>
+    </div>
+</body>
+</html>
+
+
